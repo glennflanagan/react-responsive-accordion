@@ -47,58 +47,75 @@ var App = _react2.default.createClass({
         null,
         _react2.default.createElement(
           'div',
-          { triggerText: 'Trigger Text One' },
+          { triggerText: 'A nifty React accordion component' },
           _react2.default.createElement(
             'p',
             null,
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+            'So this is an Accordion component that used the ',
+            _react2.default.createElement(
+              'a',
+              { href: 'https://github.com/glennflanagan/react-collapsible' },
+              'react-collapsible'
+            ),
+            ' component. How handy.'
           )
         ),
         _react2.default.createElement(
           'div',
-          { triggerText: 'Trigger Text Two' },
+          { triggerText: 'What the difference?', triggerTextWhenOpen: 'THAT is the difference!' },
           _react2.default.createElement(
             'p',
             null,
-            'Dolor sit amet, consectetur adipxercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+            'An Accordion is different to a Collapsible in the sense that only one "tray" will be open at any one time.'
           )
         ),
         _react2.default.createElement(
           'div',
-          { triggerText: 'Trigger Text Three', triggerTextWhenOpen: 'Ohh I\'m open' },
+          { triggerText: 'I\'m responsive and I have a little secret. Look inside.' },
           _react2.default.createElement(
             'p',
             null,
-            'Eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+            'And this Accordion component is also completely repsonsive. Hurrah for mobile users!'
           ),
           _react2.default.createElement(
             _Accordion2.default,
             null,
             _react2.default.createElement(
               'div',
-              { triggerText: 'Nested Trigger Text One' },
+              { triggerText: 'Wait a minute, what is this!?' },
               _react2.default.createElement(
                 'p',
                 null,
-                'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                'Yep. This component is completely nestable...nestible...nestableableing... You can put one Accordion inside another.'
               )
             ),
             _react2.default.createElement(
               'div',
-              { triggerText: 'Nested Trigger Text Two' },
+              { triggerText: 'And you can make the text change depending on whether I\'m open or closed', triggerTextWhenOpen: 'Yeah!' },
               _react2.default.createElement(
                 'p',
                 null,
-                'Dolor sit amet, consectetur adipxercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                'Using the triggerTextWhenOpen property you can change the text when the "tray" is in the open state.'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                'So this one is using triggerTextWhenOpen={"Yeah!"}'
               )
             ),
             _react2.default.createElement(
               'div',
-              { triggerText: 'Nested Trigger Text Three' },
+              { triggerText: 'Get involved' },
               _react2.default.createElement(
                 'p',
                 null,
-                'Eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                'If you want to get involved with how this component evolved then head over to the ',
+                _react2.default.createElement(
+                  'a',
+                  { href: 'https://github.com/glennflanagan/react-collapsible' },
+                  'GitHub repo'
+                ),
+                ' and get hacking!'
               )
             )
           )
@@ -19372,9 +19389,27 @@ var Accordion = _react2.default.createClass({
   displayName: 'Accordion',
 
 
+  //Set validation for prop types
+  propTypes: {
+    transitionTime: _react2.default.PropTypes.number,
+    easing: _react2.default.PropTypes.string,
+    startPosition: _react2.default.PropTypes.number,
+    classParentString: _react2.default.PropTypes.string,
+    children: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.shape({
+      props: _react2.default.PropTypes.shape({
+        triggerText: _react2.default.PropTypes.string.isRequired,
+        triggerTextWhenOpen: _react2.default.PropTypes.string
+      })
+    }))
+  },
+
   getInitialState: function getInitialState() {
+
+    //Allow the start position to be set by props
+    var openPosition = this.props.startPosition | 0;
+
     return {
-      openPosition: 0
+      openPosition: openPosition
     };
   },
 
@@ -19399,6 +19434,9 @@ var Accordion = _react2.default.createClass({
           open: _this.state.openPosition === index,
           triggerText: node.props.triggerText,
           triggerTextWhenOpen: triggerTextWhenOpen,
+          transitionTime: _this.props.transitionTime,
+          easing: _this.props.easing,
+          classParentString: _this.props.classParentString,
           accordionPosition: index },
         node
       );

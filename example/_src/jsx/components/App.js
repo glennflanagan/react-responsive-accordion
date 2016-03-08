@@ -10,28 +10,29 @@ var App = React.createClass({
       <div>
 
         <Accordion>
-          <div triggerText="Trigger Text One">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <div triggerText="A nifty React accordion component">
+            <p>So this is an Accordion component that used the <a href="https://github.com/glennflanagan/react-collapsible">react-collapsible</a> component. How handy.</p>
           </div>
 
-          <div triggerText="Trigger Text Two">
-            <p>Dolor sit amet, consectetur adipxercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <div triggerText="What the difference?" triggerTextWhenOpen="THAT is the difference!">
+            <p>An Accordion is different to a Collapsible in the sense that only one "tray" will be open at any one time.</p>
           </div>
 
-          <div triggerText="Trigger Text Three" triggerTextWhenOpen="Ohh I'm open">
-            <p>Eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <div triggerText="I'm responsive and I have a little secret. Look inside.">
+            <p>And this Accordion component is also completely repsonsive. Hurrah for mobile users!</p>
 
             <Accordion>
-              <div triggerText="Nested Trigger Text One">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <div triggerText="Wait a minute, what is this!?">
+                <p>Yep. This component is completely nestable...nestible...nestableableing... You can put one Accordion inside another.</p>
               </div>
 
-              <div triggerText="Nested Trigger Text Two">
-                <p>Dolor sit amet, consectetur adipxercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <div triggerText="And you can make the text change depending on whether I'm open or closed" triggerTextWhenOpen="Yeah!">
+                <p>Using the triggerTextWhenOpen property you can change the text when the "tray" is in the open state.</p>
+                <p>So this one is using triggerTextWhenOpen=&#123;"Yeah!"&#125;</p>
               </div>
 
-              <div triggerText="Nested Trigger Text Three">
-                <p>Eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <div triggerText="Get involved">
+                <p>If you want to get involved with how this component evolved then head over to the <a href="https://github.com/glennflanagan/react-collapsible">GitHub repo</a> and get hacking!</p>
               </div>
             </Accordion>
           </div>
