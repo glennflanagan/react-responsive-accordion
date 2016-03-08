@@ -1,0 +1,52 @@
+// The main container element
+.Collapsible {
+  background-color: $base;
+}
+
+
+//The content within the collaspable area
+.Collapsible__contentInner {
+  padding: 10px;
+  border: 1px solid $lightGrey;
+  border-top: 0;
+
+  p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+//The link which when clicked opens the collapsable area
+.Collapsible__trigger {
+  display: block;
+  font-weight: 400;
+  text-decoration: none;
+  color: $grey;
+  position: relative;
+  border: 1px solid white;
+  padding: 10px;
+  background: $cyan;
+  color: white;
+
+
+  &:after {
+    font-family: 'FontAwesome';
+    content: '\f107';
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: block;
+    transition: transform 300ms;
+  }
+
+  &.is-open {
+    &:after {
+      transform: rotateZ(180deg);
+    }
+  }
+}
