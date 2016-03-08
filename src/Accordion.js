@@ -3,9 +3,27 @@ import Collapsible from 'react-collapsible';
 
 var Accordion = React.createClass({
 
+  //Set validation for prop types
+  propTypes: {
+    transitionTime: React.PropTypes.number,
+    easing: React.PropTypes.string,
+    startPosition: React.PropTypes.number,
+    classParentString: React.PropTypes.string,
+    children: React.PropTypes.arrayOf(React.PropTypes.shape({
+      props: React.PropTypes.shape({
+        triggerText: React.PropTypes.string.isRequired,
+        triggerTextWhenOpen: React.PropTypes.string
+      })
+    }))
+  },
+
   getInitialState: function() {
+
+    //Allow the start position to be set by props
+    var openPosition = this.props.startPosition | 0;
+
     return {
-      openPosition: 0
+      openPosition: openPosition
     }
   },
 
@@ -27,6 +45,9 @@ var Accordion = React.createClass({
                 open={(this.state.openPosition === index)}
                 triggerText={node.props.triggerText}
                 triggerTextWhenOpen={triggerTextWhenOpen}
+                transitionTime={this.props.transitionTime}
+                easing={this.props.easing}
+                classParentString={this.props.classParentString}
                 accordionPosition={index}>{node}</Collapsible>);
     });
 

@@ -18,9 +18,39 @@ Alternatively just download the `Accordion.js` file form the `src` folder and in
 ## Usage
 Collapsible can receive any HTML elements or React component as it's children. Collapsible will wrap the contents, as well as generate a trigger element which will control showing and hiding.
 
-### ES6
+### ES6 Example
 ```javascript
+import React from 'react';
+import Accordion from 'react-responsive-accordion';
 
+var App = React.createClass({
+
+
+  render: function() {
+    return(
+      <div>
+
+        <Accordion>
+          <div triggerText="A nifty React accordion component">
+            <p>So this is an Accordion component that used the <a href="https://github.com/glennflanagan/react-collapsible">react-collapsible</a> component. How handy.</p>
+          </div>
+
+          <div triggerText="What the difference?" triggerTextWhenOpen="THAT is the difference!">
+            <p>An Accordion is different to a Collapsible in the sense that only one "tray" will be open at any one time.</p>
+          </div>
+
+          <div triggerText="I'm responsive and I have a little secret. Look inside.">
+            <p>And this Accordion component is also completely repsonsive. Hurrah for mobile users!</p>
+          </div>
+        </Accordion>
+
+      </div>
+    );
+  }
+
+});
+
+export default App;
 
 ```
 
@@ -28,8 +58,9 @@ With a little CSS becomes
 
 ![Alt text](example/img/becomes.png)
 
+## Children Properties
 
-## Properties *(Options)*
+The Accordion expects to wrap its children's content in the React Collapsible compoenent. In order to set the text on these compoenents then the Accordion children are able to take the following properties.
 
 ### `triggerText` | *string* | **required**
 The text to appear in the trigger link.
@@ -37,22 +68,28 @@ The text to appear in the trigger link.
 ### `triggerTextWhenOpen` | *string*
 Optional trigger text to change to when the Collapsible is open.
 
+
+## Accordion Properties *(Options)*
+
+### `startPosition` | *number* | default: 0
+The zero based position you wish the Accordion to start open at.
+
 ### `transitionTime` | *number* | default: 400
 The number of milliseconds for the open/close transition to take.
 
 ### `easing` | *string* | default: 'liner'
 The CSS easing method you wish to apply to the open/close transition. This string can be any valid value of CSS `transition-timing-function`. For reference view the [MDN documentation](https://developer.mozilla.org/en/docs/Web/CSS/transition-timing-function).
 
-### `open` | *bool* | default: false
-Set to true if you want the Collapsible to begin in the open state. You can also use this prop to manage the state from a parent component.
-
 ### `classParentString` | *string* | default: Collapsible
 Use this to overwrite the parent CSS class for the Collapsible component parts. Read more in the CSS section below.
 
+
 ## CSS Styles
+The CSS styles for this Accordion adopt the same structure as the [React Collapsible](https://github.com/glennflanagan/react-collapsible) component.
+
 In theory you don't need any CSS to get this to work, but let's face it, it'd be pretty rubbish without it.
 
-By default the parent CSS class name is `.Collapsible` but this can be changed by setting the `classParentString` property on the component.
+By default the parent CSS class name is `.Collapsible` but this can be changed by setting the `classParentString` property on the Accordion component.
 
 The CSS class names follow a [type of BEM pattern](http://getbem.com/introduction/) of CSS naming. Below is a list of the CSS classes available on the component.  
 
