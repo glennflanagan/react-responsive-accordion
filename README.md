@@ -31,15 +31,15 @@ var App = React.createClass({
       <div>
 
         <Accordion>
-          <div triggerText="A nifty React accordion component">
+          <div data-trigger="A nifty React accordion component">
             <p>So this is an Accordion component that used the <a href="https://github.com/glennflanagan/react-collapsible">react-collapsible</a> component. How handy.</p>
           </div>
 
-          <div triggerText="What the difference?" triggerTextWhenOpen="THAT is the difference!">
+          <div data-trigger="What the difference?" data-trigger-when-open="THAT is the difference!">
             <p>An Accordion is different to a Collapsible in the sense that only one "tray" will be open at any one time.</p>
           </div>
 
-          <div triggerText="I'm responsive and I have a little secret. Look inside.">
+          <div data-trigger="I'm responsive and I have a little secret. Look inside.">
             <p>And this Accordion component is also completely repsonsive. Hurrah for mobile users!</p>
           </div>
         </Accordion>
@@ -62,12 +62,15 @@ With a little CSS becomes
 
 The Accordion expects to wrap its children's content in the React Collapsible compoenent. In order to set the text on these compoenents then the Accordion children are able to take the following properties.
 
-### `triggerText` | *string* | **required**
+### `data-trigger` | *string* | **required**
 The text to appear in the trigger link.
 
-### `triggerTextWhenOpen` | *string*
+### `data-trigger-when-open` | *string*
 Optional trigger text to change to when the Collapsible is open.
 
+### `data-trigger-Disabled` | *boolean*
+Optional flag to disable triggers programatically.
+ 
 
 ## Accordion Properties *(Options)*
 
@@ -82,7 +85,6 @@ The CSS easing method you wish to apply to the open/close transition. This strin
 
 ### `classParentString` | *string* | default: Collapsible
 Use this to overwrite the parent CSS class for the Collapsible component parts. Read more in the CSS section below.
-
 
 ## CSS Styles
 The CSS styles for this Accordion adopt the same structure as the [React Collapsible](https://github.com/glennflanagan/react-collapsible) component.
