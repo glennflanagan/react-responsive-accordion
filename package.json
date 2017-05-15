@@ -50,7 +50,6 @@
   },
   "scripts": {
     "build": "babel ./src/Accordion.js > ./dist/Accordion.js",
-    "prepublish": "npm run distfolder && npm run build",
-    "distfolder": "mkdir dist"
+    "prepublish": "npm run build"
   }
 }
