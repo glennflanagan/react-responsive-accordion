@@ -1,25 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Collapsible from 'react-collapsible';
 
 var Accordion = React.createClass({
 
   //Set validation for prop types
   propTypes: {
-    transitionTime: React.PropTypes.number,
-    easing: React.PropTypes.string,
-    startPosition: React.PropTypes.number,
-    classParentString: React.PropTypes.string,
-    children: React.PropTypes.arrayOf(React.PropTypes.shape({
-      props: React.PropTypes.shape({
-        'data-trigger': React.PropTypes.oneOfType([
-          React.PropTypes.string,
-          React.PropTypes.element
+    transitionTime: PropTypes.number,
+    easing: PropTypes.string,
+    startPosition: PropTypes.number,
+    classParentString: PropTypes.string,
+    children: PropTypes.arrayOf(PropTypes.shape({
+      props: PropTypes.shape({
+        'data-trigger': PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.element
         ]).isRequired,
-        'data-triggerWhenOpen': React.PropTypes.oneOfType([
-          React.PropTypes.string,
-          React.PropTypes.element
+        'data-triggerWhenOpen': PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.element
         ]),        
-        'data-triggerDisabled': React.PropTypes.bool,
+        'data-triggerDisabled': PropTypes.bool,
       })
     }))
   },

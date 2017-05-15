@@ -1,6 +1,6 @@
 {
   "name": "react-responsive-accordion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React accordion component which is 100% responsive.",
   "keywords": [
     "react-component",
@@ -38,7 +38,8 @@
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0-0",
-    "react-collapsible": "^1.3.0"
+    "react-collapsible": "^1.3.0",
+    "prop-types": "^15.5.10"
   },
   "repository": {
     "type": "git",
@@ -48,7 +49,8 @@
     "url": "https://github.com/glennflanagan/react-responsive-accordion/issues"
   },
   "scripts": {
-    "build": "babel src/Accordion.js > dist/Accordion.js",
-    "prepublish": "npm run build"
+    "build": "babel ./src/Accordion.js > ./dist/Accordion.js",
+    "prepublish": "npm run distfolder && npm run build",
+    "distfolder": "mkdir dist"
   }
 }
