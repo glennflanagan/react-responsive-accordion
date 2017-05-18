@@ -14,8 +14,6 @@ var _reactCollapsible2 = _interopRequireDefault(_reactCollapsible);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log('rra');
-
 var Accordion = _react2.default.createClass({
   displayName: 'Accordion',
 
@@ -52,8 +50,6 @@ var Accordion = _react2.default.createClass({
     if (this.props.closeable) {
       closeAll = !this.state.closeAll && position === this.state.openPosition;
     }
-
-    console.log(position, closeAll, this);
 
     this.setState({
       openPosition: position,
