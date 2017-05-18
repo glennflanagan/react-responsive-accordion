@@ -1,5 +1,6 @@
 import React from 'react';
 import Collapsible from 'react-collapsible';
+console.log('rra');
 
 var Accordion = React.createClass({
 
@@ -40,7 +41,9 @@ var Accordion = React.createClass({
 
     if (this.props.closeable) {
       closeAll = (!this.state.closeAll && position === this.state.openPosition);
-    }    
+    }
+
+    console.log(position, closeAll, this);
 
     this.setState({
       openPosition: position,
