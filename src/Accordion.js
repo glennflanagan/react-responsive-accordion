@@ -10,6 +10,7 @@ var Accordion = React.createClass({
     easing: PropTypes.string,
     startPosition: PropTypes.number,
     classParentString: PropTypes.string,
+    closeable: PropTypes.bool
     children: PropTypes.arrayOf(PropTypes.shape({
       props: PropTypes.shape({
         'data-trigger': PropTypes.oneOfType([
@@ -36,8 +37,15 @@ var Accordion = React.createClass({
   },
 
   handleTriggerClick: function(position) {
+    let closeAll = false;
+
+    if (this.props.closeable) {
+      closeAll = (!this.state.closeAll && position === this.state.openPosition);
+    }
+
     this.setState({
-      openPosition: position
+      openPosition: position,
+      closeAll: closeAll
     });    
   },
 
@@ -51,7 +59,7 @@ var Accordion = React.createClass({
       return (<Collapsible
                 key={"Collapsible"+index}
                 handleTriggerClick={this.handleTriggerClick}
-                open={(this.state.openPosition === index)}
+                open={(!this.state.closeAll && this.state.openPosition === index)}
                 trigger={node.props['data-trigger']}
                 triggerWhenOpen={triggerWhenOpen}
                 triggerDisabled={triggerDisabled}
