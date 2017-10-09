@@ -83,6 +83,9 @@ The number of milliseconds for the open/close transition to take.
 ### `easing` | *string* | default: 'liner'
 The CSS easing method you wish to apply to the open/close transition. This string can be any valid value of CSS `transition-timing-function`. For reference view the [MDN documentation](https://developer.mozilla.org/en/docs/Web/CSS/transition-timing-function).
 
+### `closeable` | *boolean* | default: False
+If set to True, changes default accordian behavior to allow collapsible children to be opened and closed independently.
+
 ### `classParentString` | *string* | default: Collapsible
 Use this to overwrite the parent CSS class for the Collapsible component parts. Read more in the CSS section below.
 
