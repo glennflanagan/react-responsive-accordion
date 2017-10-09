@@ -8,6 +8,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactCollapsible = require('react-collapsible');
 
 var _reactCollapsible2 = _interopRequireDefault(_reactCollapsible);
@@ -20,16 +24,16 @@ var Accordion = _react2.default.createClass({
 
   //Set validation for prop types
   propTypes: {
-    transitionTime: _react2.default.PropTypes.number,
-    easing: _react2.default.PropTypes.string,
-    startPosition: _react2.default.PropTypes.number,
-    classParentString: _react2.default.PropTypes.string,
-    closeable: _react2.default.PropTypes.bool,
-    children: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.shape({
-      props: _react2.default.PropTypes.shape({
-        'data-trigger': _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.element]).isRequired,
-        'data-triggerWhenOpen': _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.element]),
-        'data-triggerDisabled': _react2.default.PropTypes.bool
+    transitionTime: _propTypes2.default.number,
+    easing: _propTypes2.default.string,
+    startPosition: _propTypes2.default.number,
+    classParentString: _propTypes2.default.string,
+    closeable: _propTypes2.default.bool,
+    children: _propTypes2.default.arrayOf(_propTypes2.default.shape({
+      props: _propTypes2.default.shape({
+        'data-trigger': _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element]).isRequired,
+        'data-triggerWhenOpen': _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element]),
+        'data-triggerDisabled': _propTypes2.default.bool
       })
     }))
   },

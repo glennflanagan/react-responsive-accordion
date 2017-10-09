@@ -10,7 +10,7 @@ var Accordion = React.createClass({
     easing: PropTypes.string,
     startPosition: PropTypes.number,
     classParentString: PropTypes.string,
-    closeable: PropTypes.bool
+    closeable: PropTypes.bool,
     children: PropTypes.arrayOf(PropTypes.shape({
       props: PropTypes.shape({
         'data-trigger': PropTypes.oneOfType([
