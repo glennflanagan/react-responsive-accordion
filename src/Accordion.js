@@ -10,6 +10,7 @@ var Accordion = React.createClass({
     easing: PropTypes.string,
     startPosition: PropTypes.number,
     classParentString: PropTypes.string,
+    onTrigerClick: PropTypes.func,
     children: PropTypes.arrayOf(PropTypes.shape({
       props: PropTypes.shape({
         'data-trigger': PropTypes.oneOfType([
@@ -38,7 +39,9 @@ var Accordion = React.createClass({
   handleTriggerClick: function(position) {
     this.setState({
       openPosition: position
-    });    
+    });
+    
+    this.props.onTriggerClick(position);
   },
 
   render: function() {
