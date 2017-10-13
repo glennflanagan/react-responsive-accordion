@@ -86,6 +86,9 @@ The CSS easing method you wish to apply to the open/close transition. This strin
 ### `classParentString` | *string* | default: Collapsible
 Use this to overwrite the parent CSS class for the Collapsible component parts. Read more in the CSS section below.
 
+### `onTriggerClick` | *function* | default: no-op function
+Use this to hook callback functions and react to state changes from the accordion.
+
 ## CSS Styles
 The CSS styles for this Accordion adopt the same structure as the [React Collapsible](https://github.com/glennflanagan/react-collapsible) component.
 
