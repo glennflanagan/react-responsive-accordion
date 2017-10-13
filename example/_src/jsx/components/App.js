@@ -23,9 +23,10 @@ var App = React.createClass({
           <div data-trigger="I'm responsive and I have a little secret. Look inside.">
             <p>And this Accordion component is also completely repsonsive. Hurrah for mobile users!</p>
 
-            <Accordion>
+            <Accordion closeable={true}>
               <div data-trigger="Wait a minute, what is this!?">
                 <p>Yep. This component is completely nestable...nestible...nestableableing... You can put one Accordion inside another.</p>
+                <p>Also notice - this accordian is closeable. Meaning all children can be in the closed state if closeable = true</p>
               </div>
 
               <div data-trigger="And you can make the text change depending on whether I'm open or closed" data-trigger-when-open="Yeah!">
