@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Collapsible from 'react-collapsible';
+import createReactClass from 'create-react-class';
 
-var Accordion = React.createClass({
+var Accordion = createReactClass({
 
   //Set validation for prop types
   propTypes: {
