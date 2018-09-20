@@ -51,5 +51,8 @@
   "scripts": {
     "build": "babel src --out-dir dist",
     "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "create-react-class": "^15.6.3"
   }
 }
