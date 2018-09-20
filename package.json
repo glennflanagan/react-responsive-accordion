@@ -49,7 +49,7 @@
     "url": "https://github.com/glennflanagan/react-responsive-accordion/issues"
   },
   "scripts": {
-    "build": "babel ./src/Accordion.js > ./dist/Accordion.js",
+    "build": "babel src --out-dir dist",
     "prepublish": "npm run build"
   }
 }
