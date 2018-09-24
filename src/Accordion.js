@@ -11,7 +11,7 @@ var Accordion = createReactClass({
     easing: PropTypes.string,
     startPosition: PropTypes.number,
     classParentString: PropTypes.string,
-    onTrigerClick: PropTypes.func,
+    onTriggerClick: PropTypes.func,
     closeable: PropTypes.bool,
     children: PropTypes.arrayOf(PropTypes.shape({
       props: PropTypes.shape({
