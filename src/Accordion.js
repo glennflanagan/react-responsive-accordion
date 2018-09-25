@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Collapsible from 'react-collapsible';
+import createReactClass from 'create-react-class';
 
-var Accordion = React.createClass({
+var Accordion = createReactClass({
 
   //Set validation for prop types
   propTypes: {
@@ -10,7 +11,7 @@ var Accordion = React.createClass({
     easing: PropTypes.string,
     startPosition: PropTypes.number,
     classParentString: PropTypes.string,
-    onTrigerClick: PropTypes.func,
+    onTriggerClick: PropTypes.func,
     closeable: PropTypes.bool,
     children: PropTypes.arrayOf(PropTypes.shape({
       props: PropTypes.shape({
